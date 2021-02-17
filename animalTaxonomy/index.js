@@ -40,7 +40,7 @@ const greetAnimals = (animals) => {
 	animals.greeting();
 }
 
-const allAnimals = [duk, merlin]
+const allAnimals = [duke, merlin]
 
 allAnimals.map((animal) => {
   greetAnimals(animal)
