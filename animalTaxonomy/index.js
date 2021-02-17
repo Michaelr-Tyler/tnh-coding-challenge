@@ -11,10 +11,6 @@ class Animal{
     this.weight = weight
     this.chipId = chipId
   }
-  
-  greeting(){
-    console.log(`Hi, my name is ${this.name}. I am a ${this.age} year old ${this.breed} ${this.species}, that weighs ${this.weight} pounds. My chip identification is ${this.chipId}`)
-  }
 }
 
 // then I can create a cat and dog subclass, or child class
@@ -36,8 +32,9 @@ let duke = new Dog('duke', 'corgi', 1, 22, '55cdac0e-2029-4764-85bd-f2378f87c4cf
 let merlin = new Cat('merlin', 'maine coon', 12, 17, '55cdac0e-2029-4764-85bd-f2378f87c4cf')
 
 // create a function to call their greetings
-const greetAnimals = (animals) => { 
-	animals.greeting();
+// moved the greeting here to sorta remove what I believe to be couplling between the parent and child classes
+const greetAnimals = animals => { 
+    console.log(`Hi, my name is ${animals.name}. I am a ${animals.age} year old ${animals.breed} ${animals.species}, that weighs ${animals.weight} pounds. My chip identification is ${animals.chipId}`)
 }
 
 const allAnimals = [duke, merlin]
