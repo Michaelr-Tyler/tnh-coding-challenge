@@ -42,6 +42,7 @@ const greetAnimals = (animals) => {
 
 const allAnimals = [duke, merlin]
 
+
 allAnimals.map((animal) => {
   greetAnimals(animal)
 })
