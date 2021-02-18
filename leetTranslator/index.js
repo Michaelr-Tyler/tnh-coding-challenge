@@ -64,7 +64,7 @@ const translateLeet = str => {
     .replace(/7/g, "T")
     .replace(/8/g, "B")
     .replace(/9/g, "g")
-    .replace(/0/g, "0")
+    .replace(/0/g, "o")
     .toLowerCase()
   return capitalizer(translated)
  }
