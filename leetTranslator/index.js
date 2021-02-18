@@ -66,7 +66,7 @@ const translateLeet = str => {
     .replace(/9/g, "g")
     .replace(/0/g, "o")
     .toLowerCase()
-  return capitalizer(translated)
+  return punctuator(capitalizer(translated))
  }
   
   const capitalizer = (str) => {
@@ -74,27 +74,41 @@ const translateLeet = str => {
     const capitalized = []
     // grab first letter, capitalize it, and push it into the array
     const firstLetter = str.charAt(0).toUpperCase()
-    capitalized.push(firstLetter)
-    const removeFirst = str.slice(1)
-    capitalized.push(removeFirst)
+    const remainingStr = str.slice(1)
+    capitalized.push(firstLetter + remainingStr)
     return capitalized.join('')
   }
-  const exclamation = '!'
-  const exclamationPointHelper = (str) => {
-  //  let exclamation = '!'
-   const rawChars = str.split('')
-   const removeExclamations = rawChars.filter((letter) => {
-    return exclamation.indexOf(letter) === -1;
-   }).join('')
-    return removeExclamations
+
+// .search() method will search for a charecter and if none is found it will return -1
+// so assuming any ! that is not at the end of the phrase or duplicated we should
+// remove all of them, and add one to the end.
+// if however there is an index of 0 or greater just return the string 
+  const punctuator = (str) =>{
+    if (str.search('!') === -1) {
+     return str
+    } else {
+      const removePunc = str.replace(/!/g, '')
+      return removePunc + '!'
+    }
   }
+
+  console.log(translateLeet('c0m3 47 M3 820')) // -> Come at me bro
+  console.log(translateLeet('7h3 W021d i5 f147!!!')) // -> The world is flat!
+  console.log(translateLeet("i'm 7311in9 m0M!!")) // -> I'm telling mom!
+
+  // const exclamation = '!'
+  // const exclamationPointHelper = (str) => {
+  // //  let exclamation = '!'
+  //  const rawChars = str.split('')
+  //  const removeExclamations = rawChars.filter((letter) => {
+  //   return exclamation.indexOf(letter) === -1;
+  //  }).join('')
+  //   return removeExclamations
+  // }
   // exclamationPointHelper("I'm telling mom!!!!!!")
   // exclamationPointHelper("!!!!!!I'm telling mom!!!!!!")
-  console.log(exclamationPointHelper("I'm telling mom!!"))
+  // console.log(exclamationPointHelper("I'm telling mom!!"))
   
   
    // capitalizer("i'm telling mom!!")
    // console.log(translateLeet('!!133t 5p33k3r5'))
-   console.log(translateLeet('c0m3 47 M3 820')) // -> Come at me bro
-   console.log(translateLeet('7h3 W021d i5 f147!!!')) // -> The world is flat!
-   console.log(translateLeet("i'm 7311in9 m0M!!")) // -> I'm telling mom!
