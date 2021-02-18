@@ -19,36 +19,55 @@
 // then remove them all and just add one at the end **hacky way** 
 // or skip the first one and remove the rest??, however if the phrase starts with one and ends with >= 1 then this won't work right and will need refactoring
 
+// const translateLeet = str => {
+//   let translated = []
+//     const rawChars = str.split('')
+//     for (let char of rawChars) {
+//       if (char === '1') {
+//         translated.push('L')
+//       } else if(char === '2') {
+//         translated.push('R')
+//       } else if(char === '3') {
+//         translated.push('E')
+//       } else if(char === '4') {
+//         translated.push('A')
+//       } else if(char === '5') {
+//         translated.push('S')
+//       } else if(char === '6') {
+//         translated.push('b')
+//       } else if(char === '7') {
+//         translated.push('T')
+//       } else if(char === '8') {
+//         translated.push('B')
+//       } else if(char === '9') {
+//         translated.push('g')
+//       } else if(char === '0') {
+//         translated.push('o')
+//       } else {
+//         translated.push(char)
+//       }
+//     }
+//      return capitalizer(translated.join('').toLowerCase())
+//   }
+
+// .replace() method will search a str for the first matching value 
+// and replace it with whatever is given for the second argument. 
+// with the g modifier it will replace all values
 const translateLeet = str => {
-  let translated = []
-    const rawChars = str.split('')
-    for (let char of rawChars) {
-      if (char === '1') {
-        translated.push('L')
-      } else if(char === '2') {
-        translated.push('R')
-      } else if(char === '3') {
-        translated.push('E')
-      } else if(char === '4') {
-        translated.push('A')
-      } else if(char === '5') {
-        translated.push('S')
-      } else if(char === '6') {
-        translated.push('b')
-      } else if(char === '7') {
-        translated.push('T')
-      } else if(char === '8') {
-        translated.push('B')
-      } else if(char === '9') {
-        translated.push('g')
-      } else if(char === '0') {
-        translated.push('o')
-      } else {
-        translated.push(char)
-      }
-    }
-     return capitalizer(translated.join('').toLowerCase())
-  }
+  const translated = str
+    .replace(/1/g, "L")
+    .replace(/2/g, "R")
+    .replace(/3/g, "E")
+    .replace(/4/g, "A")
+    .replace(/5/g, "S")
+    .replace(/6/g, "b")
+    .replace(/7/g, "T")
+    .replace(/8/g, "B")
+    .replace(/9/g, "g")
+    .replace(/0/g, "0")
+    .toLowerCase()
+  return capitalizer(translated)
+ }
   
   const capitalizer = (str) => {
     //empty array to push everything into
